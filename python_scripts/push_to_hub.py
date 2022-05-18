@@ -16,7 +16,7 @@ def get_args():
         type=Path,
         default="/gpfswork/rech/six/commun/bigscience-training/clean_v2/bigscience-catalogue-lm-data",
     )
-    parser.add_argument("--args.hub_repo_prefix", type=Path, default="bigscience-catalogue-lm-data")
+    parser.add_argument("--hub_repo_prefix", type=Path, default="bigscience-catalogue-lm-data")
     args = parser.parse_args()
     return args
 

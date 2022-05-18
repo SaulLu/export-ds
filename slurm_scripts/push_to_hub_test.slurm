@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=1         # number of cores per tasks
 #SBATCH --hint=nomultithread         # we get physical cores not logical
 #SBATCH --partition=compil
-#SBATCH --time 00:02:00              # maximum execution time (HH:MM:SS)
+#SBATCH --time 00:10:00              # maximum execution time (HH:MM:SS)
 #SBATCH --output=/gpfsdswork/projects/rech/six/uue59kq/logs/enum_compil_4/%x-%j.out           # output file name
 #SBATCH --array=16
 #SBATCH --account=ajs@cpu
