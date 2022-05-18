@@ -7,10 +7,10 @@
 #SBATCH --partition=compil
 #SBATCH --time 00:02:00              # maximum execution time (HH:MM:SS)
 #SBATCH --output=/gpfsdswork/projects/rech/six/uue59kq/logs/enum_compil_4/%x-%j.out           # output file name
-#SBATCH --array=17
+#SBATCH --array=16
 #SBATCH --account=ajs@cpu
 
-
+conda activate lucile
 # ===== GET DATASET ======
 
 DATASET_ID=$SLURM_ARRAY_TASK_ID
@@ -508,3 +508,9 @@ LIST_DATASET=(
 DATASET_NAME=${LIST_DATASET[$SLURM_ARRAY_TASK_ID]}
 echo "DATASET_NAME "$DATASET_NAME
 echo "SLURM_ARRAY_TASK_ID "$SLURM_ARRAY_TASK_ID
+
+# ===== PUSH TO HUB ======
+WORKING_DIR=/gpfswork/rech/six/uue59kq/repos/export-ds
+pushd $WORKING_DIR
+
+python python_scripts/push_to_hub.py --dataset-name $DATASET_NAME
