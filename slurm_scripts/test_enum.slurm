@@ -8,7 +8,7 @@
 #SBATCH --time 00:02:00              # maximum execution time (HH:MM:SS)
 #SBATCH --output=/gpfsdswork/projects/rech/six/uue59kq/logs/enum/%x-%j.out           # output file name
 #SBATCH --array=0-12
-#SBATCH --account=six@ajs
+#SBATCH --account=ajs@cpu
 
 # ===== GET DATASET ======
 
