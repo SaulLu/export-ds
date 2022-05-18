@@ -42,10 +42,10 @@ def main():
         logging.info(f"The dataset {dset_id} has already been pushed to the hub. Doing nothing.")
         return
 
-    # dset = load_from_disk(args.path_prefix / args.dataset_name / "final")
-    # logging.info("Datset loaded ", dset)
-    # dset.push_to_hub(dset_id, private=True)
-    # logging.info("Finish successfully")
+    dset = load_from_disk(args.path_prefix / args.dataset_name / "final")
+    logging.info("Datset loaded ", dset)
+    dset.push_to_hub(dset_id, private=True)
+    logging.info("Finish successfully")
 
 
 if __name__ == "__main__":

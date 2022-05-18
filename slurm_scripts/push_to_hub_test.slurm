@@ -2,12 +2,12 @@
 #SBATCH --job-name=test_push_to_hub
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1          # crucial - only 1 task per dist per node!
-#SBATCH --cpus-per-task=1         # number of cores per tasks
+#SBATCH --cpus-per-task=4         # number of cores per tasks
 #SBATCH --hint=nomultithread         # we get physical cores not logical
 #SBATCH --partition=compil
-#SBATCH --time 00:10:00              # maximum execution time (HH:MM:SS)
-#SBATCH --output=/gpfsdswork/projects/rech/six/uue59kq/logs/enum_compil_4/%x-%j.out           # output file name
-#SBATCH --array=16
+#SBATCH --time 04:00:00              # maximum execution time (HH:MM:SS)
+#SBATCH --output=/gpfsdswork/projects/rech/six/uue59kq/logs/push_to_hub/%x-%j.out           # output file name
+#SBATCH --array=0
 #SBATCH --account=ajs@cpu
 
 conda activate lucile
