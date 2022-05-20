@@ -15,19 +15,19 @@ conda activate lucile
 
 DATASET_ID=$SLURM_ARRAY_TASK_ID
 LIST_DATASET=(
-    "lm_ar_oscar.jsonl"
-    "lm_eu_oscar.jsonl"
-    "lm_indic-hi_oscar.jsonl"
-    "lm_zhs_oscar.jsonl"
-    "lm_ca_oscar.jsonl"
-    "lm_fr_oscar.jsonl"
-    "lm_indic-ur_oscar.jsonl"
-    "lm_en_oscar.jsonl"
-    "lm_id_oscar.jsonl"
-    "lm_pt_oscar.jsonl"
-    "lm_es_oscar.jsonl"
-    "lm_indic-bn_oscar.jsonl"
-    "lm_vi_oscar.jsonl"
+    "lm_ar_oscar"
+    "lm_eu_oscar"
+    "lm_indic-hi_oscar"
+    "lm_zhs_oscar"
+    "lm_ca_oscar"
+    "lm_fr_oscar"
+    "lm_indic-ur_oscar"
+    "lm_en_oscar"
+    "lm_id_oscar"
+    "lm_pt_oscar"
+    "lm_es_oscar"
+    "lm_indic-bn_oscar"
+    "lm_vi_oscar"
 )
 DATASET_NAME=${LIST_DATASET[$SLURM_ARRAY_TASK_ID]}
 echo "DATASET_NAME "$DATASET_NAME
@@ -37,4 +37,6 @@ echo "SLURM_ARRAY_TASK_ID "$SLURM_ARRAY_TASK_ID
 WORKING_DIR=/gpfswork/rech/six/uue59kq/repos/export-ds
 pushd $WORKING_DIR
 
-python python_scripts/push_to_hub.py --dataset-name $DATASET_NAME --path-prefix /gpfswork/rech/six/commun/bigscience-training/oscar_pii_no_id_no_num_jsonl/
+python python_scripts/push_to_hub.py \
+    --dataset-name $DATASET_NAME \
+    --path-prefix /gpfswork/rech/six/commun/bigscience-training/oscar_pii_no_id_no_num_jsonl/
