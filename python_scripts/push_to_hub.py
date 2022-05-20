@@ -46,7 +46,7 @@ def main():
     if args.use_load_from_disk:
         dset = load_from_disk(args.path_prefix / args.dataset_name / "final")
     else:
-        dset = load_dataset(args.path_prefix, data_files=[args.dataset_name], split="train")
+        dset = load_dataset(args.path_prefix, data_files=[f"{args.dataset_name}.jsonl"], split="train")
     logging.info("Dataset loaded ", dset)
     dset.push_to_hub(dset_id, private=True)
     logging.info("Finish successfully")
