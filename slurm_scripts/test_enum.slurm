@@ -13,7 +13,6 @@
 # ===== GET DATASET ======
 
 DATASET_ID=$SLURM_ARRAY_TASK_ID
-DATASET_ID=$SLURM_ARRAY_TASK_ID
 LIST_DATASET=(
     "lm_ar_arabench"
     "lm_ar_arabic_billion_words"

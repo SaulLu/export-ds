@@ -513,4 +513,4 @@ echo "SLURM_ARRAY_TASK_ID "$SLURM_ARRAY_TASK_ID
 WORKING_DIR=/gpfswork/rech/six/uue59kq/repos/export-ds
 pushd $WORKING_DIR
 
-python python_scripts/push_to_hub.py --dataset-name $DATASET_NAME
+python python_scripts/push_to_hub.py --use_load_from_disk --dataset-name $DATASET_NAME

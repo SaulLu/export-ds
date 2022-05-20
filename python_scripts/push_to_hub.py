@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 import logging
 import datasets
-from datasets import load_from_disk
+from datasets import load_from_disk, load_dataset
 from huggingface_hub import HfApi
 
 datasets.utils.logging.set_verbosity_info()
@@ -17,6 +17,7 @@ def get_args():
         default="/gpfswork/rech/six/commun/bigscience-training/clean_v2/bigscience-catalogue-lm-data",
     )
     parser.add_argument("--hub_repo_prefix", type=Path, default="bigscience-catalogue-lm-data")
+    parser.add_argument("--use_load_from_disk", action="store_true")
     args = parser.parse_args()
     return args
 
@@ -42,8 +43,11 @@ def main():
         logging.info(f"The dataset {dset_id} has already been pushed to the hub. Doing nothing.")
         return
 
-    dset = load_from_disk(args.path_prefix / args.dataset_name / "final")
-    logging.info("Datset loaded ", dset)
+    if args.use_load_from_disk:
+        dset = load_from_disk(args.path_prefix / args.dataset_name / "final")
+    else:
+        dset = load_dataset(args.path_prefix, data_files=[args.dataset_name], split="train")
+    logging.info("Dataset loaded ", dset)
     dset.push_to_hub(dset_id, private=True)
     logging.info("Finish successfully")
 
